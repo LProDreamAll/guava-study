@@ -52,7 +52,7 @@ public class OrderingTest {
 		List<Integer> unorderedIntList = Lists.newArrayList(5, 3, 2, 4, 1);
 		List<Integer> orderedIntList = Lists.newArrayList(1, 2, 3, 4, 5);
 		Collections.sort(unorderedIntList, Ordering.from(new Comparator<Integer>() {
-			@Override
+			
 			public int compare(Integer i1, Integer i2) {
 				return i1.compareTo(i2);
 			}
@@ -86,15 +86,15 @@ public class OrderingTest {
 		List<String> orderedStringList = Lists.newArrayList("Jock", "Jerry", "Ohaha", "Oest", "Yeah");
 
 		Ordering<String> firstLetterOrdering = Ordering.from(new Comparator<String>() {
-			@Override
+			
 			public int compare(String s1, String s2) {
 				return s1.substring(0, 1).compareTo(s2.substring(0, 1));
 			}
 		});
 		Collections.sort(unorderedStringList, firstLetterOrdering.compound(new Comparator<String>() {
-			@Override
+			
 			public int compare(String s1, String s2) {
-				return s2.substring(1, s2.length()).compareTo(s1.substring(1, s1.length()));
+				return s2.substring(1).compareTo(s1.substring(1));
 			}
 		}));
 		assertTrue(orderedStringList.equals(unorderedStringList));
@@ -105,10 +105,10 @@ public class OrderingTest {
 		List<String> orderedStringList = Lists.newArrayList("Jarry", "Ybah", "Oest", "Ohaha", "Jock");
 
 		Ordering<String> secondLetterOrdering = Ordering.natural().onResultOf(new Function<String, String>() {
-			@Override
+			
 			public String apply(String input) {
 				// 去除首字母
-				return input.substring(1, input.length());
+				return input.substring(1);
 			}
 		});
 
