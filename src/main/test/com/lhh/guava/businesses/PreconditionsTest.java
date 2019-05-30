@@ -1,4 +1,4 @@
-package com.lhh.businesses;
+package com.lhh.guava.businesses;
 
 import com.google.common.base.Preconditions;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.lhh.businesses;
+package com.lhh.guava.businesses;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
